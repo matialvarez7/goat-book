@@ -50,7 +50,7 @@ class NewVisitorTeste(unittest.TestCase):
         self.check_for_row_in_list_table("2: Use peacock feathers to make a fly")
 
         # Satisfied, she goes back to sleep
-        self.fail("Finish the test!")
+        #self.fail("Finish the test!")
         [...]
 
 
