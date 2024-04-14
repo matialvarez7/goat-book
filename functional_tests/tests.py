@@ -3,8 +3,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
+from django.test import LiveServerTestCase
 
-class NewVisitorTeste(unittest.TestCase):
+class NewVisitorTeste(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
     def tearDown(self):
@@ -18,7 +19,7 @@ class NewVisitorTeste(unittest.TestCase):
     def test_can_start_a_todo_list(self):
         # Edith has heard about a cool new online to-do app.
         # She goes to check out its homepage
-        self.browser.get("http://localhost:8000")
+        self.browser.get(self.live_server_url)
         # She notices the page title and header mention to-do lists
         self.assertIn("To-Do", self.browser.title)
         header_text = self.browser.find_element(By.TAG_NAME, "h1").text
@@ -54,6 +55,6 @@ class NewVisitorTeste(unittest.TestCase):
         [...]
 
 
-if __name__ == "__main__":
-    unittest.main()
+# if __name__ == "__main__":
+#     unittest.main()
 
